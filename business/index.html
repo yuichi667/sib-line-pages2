@@ -198,6 +198,7 @@
       font-size: 0.92rem;
       font-weight: 850;
       transition: 0.24s ease;
+      white-space: nowrap;
     }
 
     nav a:hover {
@@ -235,11 +236,31 @@
       margin-top: 0;
     }
 
+    h1,
+    h2,
+    h3,
+    p,
+    nav a,
+    .chip,
+    .btn,
+    .future-caption,
+    .floating-mini strong,
+    .floating-mini span,
+    .network-node strong,
+    .network-node span,
+    .point,
+    .stat span,
+    .tag {
+      line-break: strict;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+
     h1 {
       margin-bottom: 18px;
       color: #05070f;
       font-size: clamp(2.7rem, 6.5vw, 5.2rem);
-      line-height: 1.04;
+      line-height: 1.02;
       letter-spacing: -0.055em;
     }
 
@@ -262,18 +283,32 @@
       line-height: 1.85;
     }
 
+    .hero-title {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.02em;
+      max-width: 700px;
+    }
+
+    .hero-title .line {
+      display: block;
+      width: fit-content;
+      white-space: nowrap;
+    }
+
     .hero-title .char {
       display: inline-block;
       opacity: 0;
       transform: translateY(18px);
       filter: blur(6px);
       animation: titleReveal 0.58s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-      animation-delay: calc(var(--i) * 0.045s + 0.22s);
+      animation-delay: calc(var(--i) * 0.04s + 0.18s);
     }
 
     .hero-title .word-space {
       display: inline-block;
-      width: 0.32em;
+      width: 0.25em;
     }
 
     @keyframes titleReveal {
@@ -285,7 +320,7 @@
     }
 
     .hero-script {
-      margin: 12px 0 0;
+      margin: 16px 0 0;
       font-family: "Times New Roman", Georgia, serif;
       font-style: italic;
       letter-spacing: 0.08em;
@@ -366,7 +401,7 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.84) 45%, rgba(255, 255, 255, 0.24) 72%, rgba(255, 255, 255, 0.76) 100%),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.88) 44%, rgba(255, 255, 255, 0.28) 70%, rgba(255, 255, 255, 0.76) 100%),
         url("../assets/images/shonan-sunset.png");
       background-size: cover;
       background-position: center bottom;
@@ -405,6 +440,7 @@
       font-size: 0.86rem;
       font-weight: 900;
       margin-bottom: 16px;
+      white-space: nowrap;
     }
 
     .eyebrow i {
@@ -416,10 +452,11 @@
     }
 
     .hero-copy {
-      max-width: 620px;
+      max-width: 630px;
       color: #43516f;
       font-size: 1.03rem;
       font-weight: 650;
+      line-height: 1.8;
     }
 
     .chip-row {
@@ -438,6 +475,7 @@
       color: #1d2a4b;
       font-size: 0.88rem;
       font-weight: 900;
+      white-space: nowrap;
     }
 
     .cta-row {
@@ -453,14 +491,14 @@
 
     .future-card {
       position: absolute;
-      inset: 24px 0 58px 18px;
+      inset: 24px 0 52px 18px;
       overflow: hidden;
       border-radius: 38px;
       background:
-        linear-gradient(135deg, rgba(0, 48, 40, 0.65), rgba(0, 133, 94, 0.4) 45%, rgba(255, 154, 61, 0.28)),
+        linear-gradient(180deg, rgba(6, 22, 40, 0.08), rgba(6, 22, 40, 0.18)),
         url("../assets/images/future-green-city.jpg");
       background-size: cover;
-      background-position: center;
+      background-position: center 56%;
       box-shadow: 0 28px 72px rgba(9, 21, 55, 0.22);
       isolation: isolate;
     }
@@ -470,8 +508,8 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(120deg, rgba(38, 255, 186, 0.18) 0 1px, transparent 1px 16px),
-        linear-gradient(30deg, rgba(255, 255, 255, 0.13), transparent 55%);
+        linear-gradient(120deg, rgba(38, 255, 186, 0.11) 0 1px, transparent 1px 16px),
+        linear-gradient(30deg, rgba(255, 255, 255, 0.10), transparent 55%);
       mix-blend-mode: screen;
       opacity: 0.65;
       animation: scan 8s linear infinite;
@@ -489,36 +527,53 @@
     .future-caption {
       position: absolute;
       left: 22px;
-      right: 22px;
       bottom: 22px;
+      width: min(72%, 360px);
       border-radius: 24px;
-      padding: 18px;
-      background: rgba(255, 255, 255, 0.82);
+      padding: 18px 18px 16px;
+      background: rgba(255, 255, 255, 0.84);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       color: var(--navy);
+      box-shadow: 0 12px 32px rgba(9, 21, 55, 0.16);
+      animation: captionPop 0.9s ease-out both 0.35s, floatSoft 7s ease-in-out infinite 1.3s;
+    }
+
+    .future-caption strong {
+      display: block;
+      font-size: clamp(1.15rem, 2.4vw, 1.85rem);
       font-weight: 950;
-      line-height: 1.6;
+      line-height: 1.22;
+      letter-spacing: -0.03em;
+    }
+
+    .future-caption span {
+      display: block;
+      margin-top: 8px;
+      color: #3f4d69;
+      font-size: 0.96rem;
+      font-weight: 800;
+      line-height: 1.55;
     }
 
     .floating-mini {
       position: absolute;
       z-index: 3;
       border-radius: 22px;
-      padding: 17px;
-      background: rgba(255, 255, 255, 0.84);
+      padding: 16px 16px 14px;
+      background: rgba(255, 255, 255, 0.88);
       border: 1px solid rgba(255, 255, 255, 0.68);
       box-shadow: var(--soft-shadow);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      animation: floatMini 7s ease-in-out infinite;
     }
 
     .floating-mini strong {
       display: block;
       color: var(--navy);
-      font-size: 1.08rem;
-      line-height: 1.45;
+      font-size: 1.02rem;
+      line-height: 1.42;
+      letter-spacing: -0.02em;
     }
 
     .floating-mini span {
@@ -526,28 +581,59 @@
       color: var(--blue);
       font-size: 0.8rem;
       font-weight: 950;
-      margin-bottom: 5px;
+      margin-bottom: 6px;
+      white-space: nowrap;
     }
 
     .mini-a {
       top: 8px;
       left: -4px;
       width: 205px;
+      animation: miniFloatA 6.8s ease-in-out infinite;
     }
 
     .mini-b {
-      right: -6px;
-      bottom: 8px;
-      width: 230px;
-      animation-delay: -3s;
+      right: -2px;
+      bottom: 18px;
+      width: 210px;
+      animation: miniFloatB 7.4s ease-in-out infinite;
     }
 
-    @keyframes floatMini {
+    @keyframes captionPop {
+      from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.96);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes floatSoft {
       0%, 100% {
         transform: translateY(0);
       }
       50% {
-        transform: translateY(-12px);
+        transform: translateY(-8px);
+      }
+    }
+
+    @keyframes miniFloatA {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-10px) rotate(-1deg);
+      }
+    }
+
+    @keyframes miniFloatB {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-12px) rotate(1deg);
       }
     }
 
@@ -955,6 +1041,7 @@
       color: var(--navy);
       font-size: 0.84rem;
       font-weight: 900;
+      white-space: nowrap;
     }
 
     .service-card ul {
@@ -993,6 +1080,7 @@
       color: var(--blue-dark);
       font-weight: 950;
       font-size: 0.82rem;
+      white-space: nowrap;
     }
 
     .relation-wrap {
@@ -1075,6 +1163,7 @@
       color: var(--blue);
       font-size: 0.75rem;
       font-weight: 950;
+      white-space: nowrap;
     }
 
     .flow-card h3 {
@@ -1289,7 +1378,7 @@
       }
 
       main {
-        padding-top: 134px;
+        padding-top: 138px;
       }
 
       .hero {
@@ -1304,18 +1393,32 @@
 
       .hero-card::before {
         background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(255, 255, 255, 0.8)),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(255, 255, 255, 0.84)),
           url("../assets/images/shonan-sunset.png");
         background-size: cover;
         background-position: center bottom;
       }
 
       h1 {
-        font-size: 2.46rem;
+        font-size: clamp(2.55rem, 8.8vw, 3.2rem);
+        line-height: 0.99;
+        letter-spacing: -0.05em;
+      }
+
+      .hero-title {
+        gap: 0.02em;
+      }
+
+      .hero-title .line {
+        max-width: 100%;
       }
 
       h2 {
         font-size: 2rem;
+      }
+
+      .hero-script {
+        margin-top: 18px;
       }
 
       .hero-copy {
@@ -1324,22 +1427,58 @@
       }
 
       .hero-visual {
-        min-height: 390px;
+        min-height: 430px;
+        margin-top: 6px;
       }
 
       .future-card {
-        inset: 34px 0 50px 0;
+        inset: 54px 0 20px 0;
         border-radius: 28px;
+        background-position: center 58%;
+      }
+
+      .future-caption {
+        left: 14px;
+        bottom: 14px;
+        width: calc(100% - 170px);
+        min-width: 170px;
+        padding: 14px 14px 13px;
+        border-radius: 20px;
+      }
+
+      .future-caption strong {
+        font-size: 1rem;
+        line-height: 1.25;
+      }
+
+      .future-caption span {
+        font-size: 0.82rem;
+        line-height: 1.45;
+        margin-top: 6px;
       }
 
       .mini-a {
+        top: 8px;
         left: 4px;
-        width: 178px;
+        width: 156px;
+        padding: 14px 13px 12px;
       }
 
       .mini-b {
-        right: 4px;
-        width: 186px;
+        right: 6px;
+        bottom: 16px;
+        width: 154px;
+        padding: 14px 13px 12px;
+      }
+
+      .floating-mini span {
+        font-size: 0.72rem;
+        margin-bottom: 5px;
+      }
+
+      .floating-mini strong {
+        font-size: 0.9rem;
+        line-height: 1.35;
       }
 
       .stats-strip {
@@ -1421,6 +1560,15 @@
         width: 100%;
         min-width: 0;
       }
+
+      .chip-row {
+        gap: 8px;
+      }
+
+      .chip {
+        font-size: 0.82rem;
+        padding: 8px 11px;
+      }
     }
   </style>
 </head>
@@ -1459,14 +1607,20 @@
             <div class="hero-grid">
               <div>
                 <div class="eyebrow"><i></i>企業向けサービス</div>
+
                 <h1 class="hero-title" id="heroTitle">
-                  学生・企業・地域をつなぎ、<br />
-                  <span>企業の未来づくりを支援します。</span>
+                  <span class="line">企業・学生・</span>
+                  <span class="line">地域をつなぎ、</span>
+                  <span class="line">企業の未来づくりを</span>
+                  <span class="line">支援します。</span>
                 </h1>
+
                 <div class="hero-script">Shonan Innovation Base</div>
+
                 <p class="hero-copy">
                   SIBは、湘南エリアを中心に活動する学生団体です。学生との接点づくり、イベント協賛、SNS運用、採用広報、営業支援、経営者コミュニティなどを通じて、企業と若者が自然につながる機会を創出します。
                 </p>
+
                 <div class="chip-row">
                   <span class="chip">学生との接点づくり</span>
                   <span class="chip">採用広報</span>
@@ -1474,6 +1628,7 @@
                   <span class="chip">SNS運用</span>
                   <span class="chip">地域共創</span>
                 </div>
+
                 <div class="cta-row">
                   <a class="btn btn-blue" href="#contact">無料相談する</a>
                   <a class="btn btn-orange" href="#service">サービスを見る</a>
@@ -1483,17 +1638,19 @@
               <div class="hero-visual">
                 <div class="future-card">
                   <div class="future-caption">
-                    Shonan × Students × Business<br />
-                    若者との接点を、企業の資産へ。
+                    <strong>Shonan × Students × Business</strong>
+                    <span>若者との接点を、企業の未来へ。</span>
                   </div>
                 </div>
+
                 <div class="floating-mini mini-a">
                   <span>Shonan Area</span>
-                  <strong>地域と企業をつなぐ</strong>
+                  <strong>地域と企業を<br />つなぐ</strong>
                 </div>
+
                 <div class="floating-mini mini-b">
                   <span>Business Support</span>
-                  <strong>協賛・SNS・採用広報を支援</strong>
+                  <strong>協賛・SNS・<br />採用広報を支援</strong>
                 </div>
               </div>
             </div>
@@ -1818,6 +1975,7 @@
                 </p>
                 <div class="cta-row">
                   <a class="btn btn-white" href="#contact">無料相談する</a>
+
                   <a
                     class="btn btn-insta"
                     href="https://www.instagram.com/gakuseidantai_sib?igsh=cnU0Mmd0MndwMGUy&utm_source=qr"
@@ -1832,6 +1990,7 @@
                     </svg>
                     Instagram
                   </a>
+
                   <a
                     class="btn btn-x"
                     href="https://x.com/sib2021494?s=21&t=6G-wOJNxJs_7fmZvhiFHEw"
@@ -1907,37 +2066,28 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
-    const heroTitle = document.getElementById('heroTitle');
+    const heroLines = document.querySelectorAll('#heroTitle .line');
+    let globalCharIndex = 0;
 
-    if (heroTitle) {
-      const nodes = Array.from(heroTitle.childNodes);
-      let index = 0;
-      heroTitle.innerHTML = '';
+    heroLines.forEach((line) => {
+      const text = line.textContent;
+      line.textContent = '';
 
-      nodes.forEach((node) => {
-        if (node.nodeName === 'BR') {
-          heroTitle.appendChild(document.createElement('br'));
-          return;
+      Array.from(text).forEach((char) => {
+        if (char === ' ') {
+          const space = document.createElement('span');
+          space.className = 'word-space';
+          space.textContent = ' ';
+          line.appendChild(space);
+        } else {
+          const span = document.createElement('span');
+          span.className = 'char';
+          span.style.setProperty('--i', globalCharIndex++);
+          span.textContent = char;
+          line.appendChild(span);
         }
-
-        const text = node.textContent || '';
-
-        text.split('').forEach((char) => {
-          if (char === ' ') {
-            const space = document.createElement('span');
-            space.className = 'word-space';
-            space.textContent = ' ';
-            heroTitle.appendChild(space);
-          } else {
-            const span = document.createElement('span');
-            span.className = 'char';
-            span.style.setProperty('--i', index++);
-            span.textContent = char;
-            heroTitle.appendChild(span);
-          }
-        });
       });
-    }
+    });
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
