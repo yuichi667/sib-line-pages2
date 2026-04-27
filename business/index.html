@@ -524,93 +524,64 @@
       }
     }
 
-    .future-caption {
-      position: absolute;
-      left: 22px;
-      bottom: 22px;
-      width: min(72%, 360px);
-      border-radius: 24px;
-      padding: 18px 18px 16px;
-      background: rgba(255, 255, 255, 0.84);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      color: var(--navy);
-      box-shadow: 0 12px 32px rgba(9, 21, 55, 0.16);
-      animation: captionPop 0.9s ease-out both 0.35s, floatSoft 7s ease-in-out infinite 1.3s;
-    }
-
-    .future-caption strong {
-      display: block;
-      font-size: clamp(1.15rem, 2.4vw, 1.85rem);
-      font-weight: 950;
-      line-height: 1.22;
-      letter-spacing: -0.03em;
-    }
-
-    .future-caption span {
-      display: block;
-      margin-top: 8px;
-      color: #3f4d69;
-      font-size: 0.96rem;
-      font-weight: 800;
-      line-height: 1.55;
-    }
-
+    .future-caption,
     .floating-mini {
       position: absolute;
-      z-index: 3;
-      border-radius: 22px;
-      padding: 16px 16px 14px;
-      background: rgba(255, 255, 255, 0.88);
-      border: 1px solid rgba(255, 255, 255, 0.68);
-      box-shadow: var(--soft-shadow);
+      top: 16px;
+      z-index: 4;
+      border-radius: 20px;
+      padding: 12px 10px 11px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.78);
+      box-shadow: 0 12px 32px rgba(9, 21, 55, 0.14);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
     }
 
-    .floating-mini strong {
-      display: block;
-      color: var(--navy);
-      font-size: 1.02rem;
-      line-height: 1.42;
-      letter-spacing: -0.02em;
+    .future-caption {
+      left: 50%;
+      width: calc((100% - 34px) / 3);
+      min-width: 0;
+      transform: translateX(-50%);
+      animation: floatBoxCenter 6.6s ease-in-out infinite;
     }
 
+    .future-caption strong,
     .floating-mini span {
       display: block;
       color: var(--blue);
-      font-size: 0.8rem;
+      font-size: 0.74rem;
       font-weight: 950;
-      margin-bottom: 6px;
+      line-height: 1.25;
+      margin-bottom: 5px;
       white-space: nowrap;
     }
 
+    .future-caption span,
+    .floating-mini strong {
+      display: block;
+      color: #0f1638;
+      font-size: 0.95rem;
+      line-height: 1.28;
+      letter-spacing: -0.03em;
+      font-weight: 950;
+    }
+
     .mini-a {
-      top: 8px;
-      left: -4px;
-      width: 205px;
-      animation: miniFloatA 6.8s ease-in-out infinite;
+      left: 8px;
+      width: calc((100% - 34px) / 3);
+      min-width: 0;
+      animation: floatBoxLeft 6.2s ease-in-out infinite;
     }
 
     .mini-b {
-      right: -2px;
-      bottom: 18px;
-      width: 210px;
-      animation: miniFloatB 7.4s ease-in-out infinite;
+      right: 8px;
+      width: calc((100% - 34px) / 3);
+      min-width: 0;
+      animation: floatBoxRight 6.8s ease-in-out infinite;
     }
 
-    @keyframes captionPop {
-      from {
-        opacity: 0;
-        transform: translateY(18px) scale(0.96);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-
-    @keyframes floatSoft {
+    @keyframes floatBoxLeft {
       0%, 100% {
         transform: translateY(0);
       }
@@ -619,21 +590,21 @@
       }
     }
 
-    @keyframes miniFloatA {
+    @keyframes floatBoxCenter {
       0%, 100% {
-        transform: translateY(0) rotate(0deg);
+        transform: translateX(-50%) translateY(0);
       }
       50% {
-        transform: translateY(-10px) rotate(-1deg);
+        transform: translateX(-50%) translateY(-8px);
       }
     }
 
-    @keyframes miniFloatB {
+    @keyframes floatBoxRight {
       0%, 100% {
-        transform: translateY(0) rotate(0deg);
+        transform: translateY(0);
       }
       50% {
-        transform: translateY(-12px) rotate(1deg);
+        transform: translateY(-8px);
       }
     }
 
@@ -1437,48 +1408,40 @@
         background-position: center 58%;
       }
 
-      .future-caption {
-        left: 14px;
-        bottom: 14px;
-        width: calc(100% - 170px);
-        min-width: 170px;
-        padding: 14px 14px 13px;
+      .future-caption,
+      .floating-mini {
+        top: 16px;
+        padding: 12px 10px 11px;
         border-radius: 20px;
       }
 
-      .future-caption strong {
-        font-size: 1rem;
-        line-height: 1.25;
-      }
-
-      .future-caption span {
-        font-size: 0.82rem;
-        line-height: 1.45;
-        margin-top: 6px;
-      }
-
-      .mini-a {
-        top: 8px;
-        left: 4px;
-        width: 156px;
-        padding: 14px 13px 12px;
-      }
-
-      .mini-b {
-        right: 6px;
-        bottom: 16px;
-        width: 154px;
-        padding: 14px 13px 12px;
-      }
-
+      .future-caption strong,
       .floating-mini span {
-        font-size: 0.72rem;
+        font-size: 0.74rem;
         margin-bottom: 5px;
       }
 
+      .future-caption span,
       .floating-mini strong {
-        font-size: 0.9rem;
-        line-height: 1.35;
+        font-size: 0.95rem;
+        line-height: 1.28;
+      }
+
+      .mini-a {
+        left: 8px;
+        width: calc((100% - 34px) / 3);
+        min-width: 0;
+      }
+
+      .mini-b {
+        right: 8px;
+        width: calc((100% - 34px) / 3);
+        min-width: 0;
+      }
+
+      .future-caption {
+        width: calc((100% - 34px) / 3);
+        min-width: 0;
       }
 
       .stats-strip {
@@ -1570,6 +1533,24 @@
         padding: 8px 11px;
       }
     }
+
+    @media (max-width: 420px) {
+      .future-caption strong,
+      .floating-mini span {
+        font-size: 0.68rem;
+      }
+
+      .future-caption span,
+      .floating-mini strong {
+        font-size: 0.84rem;
+      }
+
+      .future-caption,
+      .floating-mini {
+        padding: 11px 8px 10px;
+        border-radius: 18px;
+      }
+    }
   </style>
 </head>
 
@@ -1638,8 +1619,8 @@
               <div class="hero-visual">
                 <div class="future-card">
                   <div class="future-caption">
-                    <strong>Shonan × Students × Business</strong>
-                    <span>若者との接点を、企業の未来へ。</span>
+                    <strong>Student Link</strong>
+                    <span>若者接点を<br />創出</span>
                   </div>
                 </div>
 
@@ -1649,8 +1630,8 @@
                 </div>
 
                 <div class="floating-mini mini-b">
-                  <span>Business Support</span>
-                  <strong>協賛・SNS・<br />採用広報を支援</strong>
+                  <span>Business</span>
+                  <strong>協賛・SNS・<br />採用支援</strong>
                 </div>
               </div>
             </div>
