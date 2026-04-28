@@ -156,18 +156,38 @@
 
     header {
       pointer-events: auto;
+      position: relative;
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 18px;
       padding: 12px 16px;
       border-radius: 999px;
+      background:
+        linear-gradient(115deg, rgba(255, 255, 255, 0.90) 0%, rgba(246, 255, 232, 0.86) 36%, rgba(214, 255, 141, 0.34) 62%, rgba(255, 255, 255, 0.88) 100%);
       transition: transform 0.28s ease, background 0.28s ease, box-shadow 0.28s ease;
     }
 
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(183, 242, 91, 0.26), transparent 34%),
+        linear-gradient(90deg, rgba(183, 242, 91, 0.12), rgba(22, 183, 123, 0.08), rgba(255, 255, 255, 0.06));
+      pointer-events: none;
+    }
+
+    header > * {
+      position: relative;
+      z-index: 1;
+    }
+
     header.compact {
-      background: rgba(255, 255, 255, 0.92);
-      box-shadow: 0 18px 48px rgba(8, 13, 43, 0.14);
+      background:
+        linear-gradient(115deg, rgba(255, 255, 255, 0.94) 0%, rgba(246, 255, 232, 0.92) 34%, rgba(214, 255, 141, 0.42) 62%, rgba(255, 255, 255, 0.92) 100%);
+      box-shadow: 0 18px 48px rgba(8, 13, 43, 0.14), 0 0 0 1px rgba(183, 242, 91, 0.22);
       transform: translateY(-2px);
     }
 
@@ -184,8 +204,8 @@
       object-fit: contain;
       border-radius: 18px;
       padding: 4px;
-      background: rgba(255, 255, 255, 0.8);
-      box-shadow: 0 12px 26px rgba(8, 13, 43, 0.1);
+      background: linear-gradient(135deg, rgba(255,255,255,0.92), rgba(235,255,204,0.66));
+      box-shadow: 0 12px 26px rgba(8, 13, 43, 0.1), 0 0 0 1px rgba(183, 242, 91, 0.22);
     }
 
     .brand-word strong {
@@ -225,7 +245,7 @@
     }
 
     nav a:hover {
-      background: rgba(183, 242, 91, 0.22);
+      background: linear-gradient(135deg, rgba(183, 242, 91, 0.34), rgba(22, 183, 123, 0.14));
       color: #203c03;
       transform: translateY(-1px);
     }
