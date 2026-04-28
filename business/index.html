@@ -1551,6 +1551,73 @@
         border-radius: 18px;
       }
     }
+
+    /* =========================================================
+       Business LP box-shape update
+       - 企業向けLPのみ、主要ボックスを「8割スクエア / 2割丸角」の印象へ調整
+       - テキスト・構成・画像・導線は変更なし
+    ========================================================= */
+
+    .hero-card,
+    .future-card,
+    .stat,
+    .card,
+    .about-box,
+    .about-photo,
+    .photo-main,
+    .photo-stack figure,
+    .merit-network,
+    .network-node,
+    .relation-card,
+    .flow-card,
+    .faq-box,
+    .footer-card {
+      border-radius: 10px !important;
+    }
+
+    .future-caption,
+    .floating-mini,
+    .service-card .icon,
+    .meta-item,
+    .short-points span {
+      border-radius: 8px !important;
+    }
+
+    .photo-section,
+    .relation-wrap,
+    .final-cta,
+    .final-photo,
+    .network-node.center {
+      border-radius: 22px !important;
+    }
+
+    @media (max-width: 760px) {
+      .hero-card,
+      .future-card,
+      .stat,
+      .card,
+      .about-box,
+      .about-photo,
+      .photo-main,
+      .photo-stack figure,
+      .merit-network,
+      .network-node,
+      .relation-card,
+      .flow-card,
+      .faq-box,
+      .footer-card {
+        border-radius: 9px !important;
+      }
+
+      .photo-section,
+      .relation-wrap,
+      .final-cta,
+      .final-photo,
+      .network-node.center {
+        border-radius: 18px !important;
+      }
+    }
+
   </style>
 </head>
 
