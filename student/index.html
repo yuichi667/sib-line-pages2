@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>SIB | 学生向けLP</title>
   <meta
     name="description"
     content="Shonan Innovation Base（SIB）の学生向けページ。イベント参加から部門運営、SIB Media、サービス運用まで、自分に合う関わり方で成長できる学生コミュニティです。"
   />
+
   <style>
     :root {
       --bg: #f7f8fc;
@@ -46,8 +48,7 @@
       --radius-md: 18px;
 
       --max: 1280px;
-      --header-h: 92px;
-      --smooth-offset: 88px;
+      --smooth-offset: 110px;
     }
 
     * {
@@ -77,6 +78,11 @@
       line-height: 1.75;
       word-break: keep-all;
       overflow-wrap: anywhere;
+      overflow-x: hidden;
+    }
+
+    main {
+      padding-top: 124px;
     }
 
     img {
@@ -145,11 +151,19 @@
        HEADER
     ========================== */
     .site-header {
-      position: sticky;
-      top: 0;
+      position: fixed;
+      top: 14px;
+      left: 0;
+      right: 0;
       z-index: 1000;
-      padding: 14px 0 0;
+      padding: 0;
       pointer-events: none;
+      transform: translateY(0);
+      transition: transform 0.34s ease;
+    }
+
+    .site-header.hidden {
+      transform: translateY(-135%);
     }
 
     .site-header .container {
@@ -162,7 +176,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 18px;
-      min-height: var(--header-h);
+      min-height: 92px;
       padding: 16px 22px;
       border-radius: 28px;
       background:
@@ -1244,12 +1258,12 @@
     }
 
     @media (max-width: 860px) {
-      :root {
-        --header-h: auto;
+      main {
+        padding-top: 154px;
       }
 
       .site-header {
-        padding-top: 12px;
+        top: 12px;
       }
 
       .nav-shell {
@@ -1257,6 +1271,7 @@
         flex-direction: column;
         padding: 16px;
         border-radius: 24px;
+        min-height: auto;
       }
 
       .brand {
@@ -1320,6 +1335,10 @@
     @media (max-width: 560px) {
       body {
         line-height: 1.68;
+      }
+
+      main {
+        padding-top: 158px;
       }
 
       .container {
@@ -1451,8 +1470,9 @@
     }
   </style>
 </head>
+
 <body>
-  <header class="site-header">
+  <header class="site-header" id="siteHeader">
     <div class="container">
       <div class="nav-shell">
         <a href="#top" class="brand" aria-label="SIB トップへ">
@@ -1475,7 +1495,6 @@
   </header>
 
   <main id="top">
-    <!-- HERO -->
     <section class="section hero">
       <div class="container">
         <div class="hero-wrap">
@@ -1534,7 +1553,6 @@
       </div>
     </section>
 
-    <!-- ABOUT / DIALOGUE -->
     <section class="section" id="about">
       <div class="container">
         <span class="eyebrow reveal">about sib</span>
@@ -1605,7 +1623,6 @@
       </div>
     </section>
 
-    <!-- VALUES -->
     <section class="section" id="values">
       <div class="container">
         <span class="eyebrow reveal">growth value</span>
@@ -1655,7 +1672,6 @@
       </div>
     </section>
 
-    <!-- ROADMAP -->
     <section class="section" id="roadmap">
       <div class="container">
         <span class="eyebrow reveal">roadmap</span>
@@ -1741,7 +1757,6 @@
       </div>
     </section>
 
-    <!-- DEPARTMENTS -->
     <section class="section" id="departments">
       <div class="container">
         <span class="eyebrow reveal">departments & media</span>
@@ -1752,7 +1767,6 @@
         </p>
 
         <div class="departments-stack">
-          <!-- Business -->
           <article class="dept-card biz reveal">
             <div class="dept-hero">
               <div class="dept-hero-inner">
@@ -1798,7 +1812,6 @@
             </div>
           </article>
 
-          <!-- Event -->
           <article class="dept-card event reveal">
             <div class="dept-hero">
               <div class="dept-hero-inner">
@@ -1844,7 +1857,6 @@
             </div>
           </article>
 
-          <!-- PR -->
           <article class="dept-card pr reveal">
             <div class="dept-hero">
               <div class="dept-hero-inner">
@@ -1890,7 +1902,6 @@
             </div>
           </article>
 
-          <!-- Media -->
           <article class="dept-card media reveal">
             <div class="dept-hero">
               <div class="dept-hero-inner">
@@ -1939,7 +1950,6 @@
       </div>
     </section>
 
-    <!-- JOIN -->
     <section class="section" id="join">
       <div class="container">
         <span class="eyebrow reveal">how to join</span>
@@ -1981,7 +1991,6 @@
       </div>
     </section>
 
-    <!-- FINAL CTA -->
     <section class="section">
       <div class="container">
         <div class="cta-panel reveal">
@@ -2012,30 +2021,46 @@
   </footer>
 
   <script>
-    // reveal animation
-    const reveals = document.querySelectorAll('.reveal');
+    const siteHeader = document.getElementById("siteHeader");
+    let lastScrollY = window.scrollY;
+
+    function handleHeaderScroll() {
+      const currentY = window.scrollY;
+
+      if (currentY <= 20 || currentY < lastScrollY) {
+        siteHeader.classList.remove("hidden");
+      } else if (currentY > lastScrollY && currentY > 120) {
+        siteHeader.classList.add("hidden");
+      }
+
+      lastScrollY = currentY;
+    }
+
+    window.addEventListener("scroll", handleHeaderScroll, { passive: true });
+    handleHeaderScroll();
+
+    const reveals = document.querySelectorAll(".reveal");
 
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
+          entry.target.classList.add("is-visible");
           revealObserver.unobserve(entry.target);
         }
       });
     }, {
       threshold: 0.14,
-      rootMargin: '0px 0px -40px 0px'
+      rootMargin: "0px 0px -40px 0px"
     });
 
     reveals.forEach((el) => revealObserver.observe(el));
 
-    // smoother in-page scroll
-    const headerOffset = 90;
+    const headerOffset = 110;
 
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener('click', function (e) {
-        const targetId = this.getAttribute('href');
-        if (!targetId || targetId === '#') return;
+      anchor.addEventListener("click", function (e) {
+        const targetId = this.getAttribute("href");
+        if (!targetId || targetId === "#") return;
 
         const target = document.querySelector(targetId);
         if (!target) return;
@@ -2045,7 +2070,7 @@
 
         window.scrollTo({
           top: targetPosition,
-          behavior: 'smooth'
+          behavior: "smooth"
         });
       });
     });
