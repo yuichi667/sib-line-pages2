@@ -33,7 +33,7 @@
     }
 
     html {
-      scroll-behavior: smooth;
+      scroll-behavior: auto;
       overflow-x: hidden;
     }
 
@@ -523,11 +523,7 @@
     }
 
     .hero-panel-meta {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      margin-top: 14px;
-      color: white;
+      display: none;
     }
 
     .hero-panel-meta strong {
@@ -1462,11 +1458,11 @@
           </a>
 
           <nav aria-label="ページ内ナビゲーション">
-            <a href="#about">概要</a>
-            <a href="#featured">実績</a>
-            <a href="#gallery">写真</a>
-            <a href="#values">想い</a>
-            <a href="#contact">次へ</a>
+            <a href="#about">About</a>
+            <a href="#featured">Events</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#values">Values</a>
+            <a href="#contact">Next</a>
           </nav>
         </header>
       </div>
@@ -1511,22 +1507,9 @@
 
               <div class="hero-panel">
                 <div class="hero-panel-photo">
-                  <img src="../assets/images/first-pitch-main.jpg" alt="第一回ピッチコンテストのワークショップ風景" />
+                  <img src="../assets/images/first-pitch-main.jpg" onerror="this.onerror=null; this.src='../assets/images/IMG_1086.jpeg';" alt="第一回ピッチコンテストのワークショップ風景" />
                 </div>
-                <div class="hero-panel-meta">
-                  <div>
-                    <strong>300+</strong>
-                    <span>参加学生</span>
-                  </div>
-                  <div>
-                    <strong>7</strong>
-                    <span>オフライン</span>
-                  </div>
-                  <div>
-                    <strong>10+</strong>
-                    <span>協力企業</span>
-                  </div>
-                </div>
+
               </div>
             </div>
           </div>
@@ -1615,7 +1598,7 @@
                     <img src="../assets/images/first-pitch-main.jpg" alt="第一回ピッチコンテストで学生がグループワークをしている様子" />
                   </figure>
                   <figure class="event-photo sub">
-                    <img src="../assets/images/first-pitch-presentation.jpg" alt="第一回ピッチコンテストで企業関係者が登壇している様子" />
+                    <img src="../assets/images/first-pitch-presentation.jpg" onerror="this.onerror=null; this.src='../assets/images/IMG_1092.jpg';" alt="第一回ピッチコンテストで企業関係者が登壇している様子" />
                   </figure>
                 </div>
 
@@ -1675,10 +1658,10 @@
 
                 <div class="event-media herozz">
                   <figure class="event-photo sub">
-                    <img src="../assets/images/herozz-talk.jpg" alt="SIBとHERO'ZZ共催イベントのトークセッション風景" />
+                    <img src="../assets/images/herozz-talk.jpg" onerror="this.onerror=null; this.src='../assets/images/IMG_9303.JPG';" alt="SIBとHERO'ZZ共催イベントのトークセッション風景" />
                   </figure>
                   <figure class="event-photo main">
-                    <img src="../assets/images/herozz-group.jpg" alt="SIBとHERO'ZZ共催イベントの集合写真" />
+                    <img src="../assets/images/herozz-group.jpg" onerror="this.onerror=null; this.src='../assets/images/IMG_9302.jpeg';" alt="SIBとHERO'ZZ共催イベントの集合写真" />
                   </figure>
                 </div>
               </div>
@@ -1700,27 +1683,27 @@
 
             <div class="masonry">
               <figure class="gallery-item big">
-                <img src="../assets/images/mayor-meeting.jpg" alt="大磯町の町長と地域活性化に向けた会議" />
+                <img src="../assets/images/mayor-meeting.jpg" onerror="this.onerror=null; this.src='../assets/images/IMG_0086(1).JPG';" alt="大磯町の町長と地域活性化に向けた会議" />
                 <figcaption class="gallery-caption">大磯町の町長と地域活性化に向けた会議</figcaption>
               </figure>
 
               <figure class="gallery-item">
-                <img src="../assets/images/mayor-lunch.jpg" alt="大磯町長を囲む会" />
+                <img src="../assets/images/mayor-lunch.jpg" onerror="this.onerror=null; this.src='../assets/images/IMG_2138.JPG';" alt="大磯町長を囲む会" />
                 <figcaption class="gallery-caption">大磯町長を囲む会</figcaption>
               </figure>
 
               <figure class="gallery-item big">
-                <img src="../assets/images/hayashi-talk.jpg" alt="林尚弘氏と山崎俊氏によるトークセッション" />
+                <img src="../assets/images/hayashi-talk.jpg" onerror="this.onerror=null; this.src='../assets/images/IMG_8754(1).JPG';" alt="林尚弘氏と山崎俊氏によるトークセッション" />
                 <figcaption class="gallery-caption">林尚弘氏 × 株式会社Wiz 山崎俊氏 トークセッション</figcaption>
               </figure>
 
               <figure class="gallery-item">
-                <img src="../assets/images/second-pitch.jpg" alt="第二回ピッチコンテスト" />
+                <img src="../assets/images/second-pitch.jpg" onerror="this.onerror=null; this.src='../assets/images/IMG_1093.jpeg';" alt="第二回ピッチコンテスト" />
                 <figcaption class="gallery-caption">第二回ピッチコンテスト</figcaption>
               </figure>
 
               <figure class="gallery-item wide">
-                <img src="../assets/images/workshop-wide.jpg" alt="学生ワークショップの様子" />
+                <img src="../assets/images/workshop-wide.jpg" onerror="this.onerror=null; this.src='../assets/images/workshop.jpg';" alt="学生ワークショップの様子" />
                 <figcaption class="gallery-caption">ワークショップ / オフライン交流会</figcaption>
               </figure>
             </div>
@@ -1849,8 +1832,8 @@
 
           <div>
             <h4>Page</h4>
-            <a href="#about">概要</a>
-            <a href="#featured">実績</a>
+            <a href="#about">About</a>
+            <a href="#featured">Events</a>
             <a href="#gallery">活動写真</a>
             <a href="#values">大切にしていること</a>
           </div>
@@ -1912,6 +1895,48 @@
       if (!el.classList.contains('visible')) {
         observer.observe(el);
       }
+    });
+
+    function easeInOutCubic(t) {
+      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+
+    function smoothScrollTo(targetY, duration = 1150) {
+      const startY = window.scrollY;
+      const distance = targetY - startY;
+      let startTime = null;
+
+      function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = easeInOutCubic(progress);
+
+        window.scrollTo(0, startY + distance * eased);
+
+        if (progress < 1) {
+          requestAnimationFrame(animation);
+        }
+      }
+
+      requestAnimationFrame(animation);
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener('click', (event) => {
+        const targetId = anchor.getAttribute('href');
+        if (!targetId || targetId === '#') return;
+
+        const target = document.querySelector(targetId);
+        if (!target) return;
+
+        event.preventDefault();
+
+        const headerOffset = window.innerWidth <= 760 ? 145 : 96;
+        const targetY = target.getBoundingClientRect().top + window.scrollY - headerOffset;
+
+        smoothScrollTo(Math.max(targetY, 0), 1250);
+      });
     });
   </script>
 </body>
