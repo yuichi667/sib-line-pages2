@@ -1,1 +1,1854 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>SIB 活動・実績 | Shonan Innovation Base</title>
+  <meta
+    name="description"
+    content="学生団体SIB（Shonan Innovation Base）の活動・実績紹介ページ。学生・企業・地域がつながるイベント、ピッチコンテスト、共催イベント、地域連携の実績を掲載しています。"
+  />
+
+  <style>
+    :root {
+      --ink: #080b16;
+      --navy: #0b1230;
+      --blue: #155dff;
+      --blue-soft: #dce8ff;
+      --lime: #b7f25b;
+      --lime-deep: #72b900;
+      --green: #16b77b;
+      --orange: #ff9b4a;
+      --paper: #f8f8f3;
+      --warm: #f3efe5;
+      --line: rgba(8, 11, 22, 0.09);
+      --muted: #606a7c;
+      --glass: rgba(255, 255, 255, 0.72);
+      --glass-strong: rgba(255, 255, 255, 0.9);
+      --shadow: 0 30px 80px rgba(8, 13, 43, 0.14);
+      --soft-shadow: 0 18px 48px rgba(8, 13, 43, 0.1);
+      --max: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, "Hiragino Sans", "Noto Sans JP", "Yu Gothic UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 4%, rgba(183, 242, 91, 0.18), transparent 31%),
+        radial-gradient(circle at 96% 8%, rgba(21, 93, 255, 0.13), transparent 31%),
+        radial-gradient(circle at 70% 100%, rgba(255, 155, 74, 0.09), transparent 30%),
+        linear-gradient(180deg, #fbfbf4 0%, #f3f5ed 44%, #f8f8f3 100%);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+      line-break: strict;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    .page {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .page::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background-image:
+        linear-gradient(rgba(8, 11, 22, 0.026) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(8, 11, 22, 0.026) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(180deg, black, transparent 74%);
+      pointer-events: none;
+    }
+
+    .orb {
+      position: fixed;
+      z-index: -1;
+      border-radius: 999px;
+      filter: blur(42px);
+      opacity: 0.32;
+      pointer-events: none;
+      animation: orbFloat 15s ease-in-out infinite;
+    }
+
+    .orb.one {
+      width: 320px;
+      height: 320px;
+      left: -120px;
+      top: 90px;
+      background: linear-gradient(135deg, var(--lime), #74e0ff);
+    }
+
+    .orb.two {
+      width: 280px;
+      height: 280px;
+      right: -130px;
+      top: 560px;
+      background: linear-gradient(135deg, var(--blue), var(--lime));
+      animation-delay: -5s;
+    }
+
+    .orb.three {
+      width: 240px;
+      height: 240px;
+      left: 8%;
+      top: 1500px;
+      background: linear-gradient(135deg, rgba(255, 155, 74, 0.65), rgba(183, 242, 91, 0.75));
+      animation-delay: -8s;
+    }
+
+    @keyframes orbFloat {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-26px) scale(1.05); }
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .glass {
+      background: var(--glass);
+      border: 1px solid rgba(255, 255, 255, 0.78);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .header-shell {
+      position: fixed;
+      top: 14px;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      pointer-events: none;
+      transform: translateY(0);
+      transition: transform 0.34s ease;
+    }
+
+    .header-shell.hidden {
+      transform: translateY(-130%);
+    }
+
+    header {
+      pointer-events: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      transition: transform 0.28s ease, background 0.28s ease, box-shadow 0.28s ease;
+    }
+
+    header.compact {
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 18px 48px rgba(8, 13, 43, 0.14);
+      transform: translateY(-2px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: max-content;
+    }
+
+    .brand-logo {
+      width: 62px;
+      height: 62px;
+      object-fit: contain;
+      border-radius: 18px;
+      padding: 4px;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 12px 26px rgba(8, 13, 43, 0.1);
+    }
+
+    .brand-word strong {
+      display: block;
+      color: #061a6c;
+      font-size: 1.45rem;
+      letter-spacing: 0.04em;
+      line-height: 1;
+    }
+
+    .brand-word span {
+      display: block;
+      margin-top: 4px;
+      color: #43506b;
+      font-size: 0.76rem;
+      font-weight: 700;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    nav a {
+      padding: 10px 13px;
+      border-radius: 999px;
+      color: #202946;
+      font-size: 0.9rem;
+      font-weight: 850;
+      transition: 0.24s ease;
+      white-space: nowrap;
+    }
+
+    nav a:hover {
+      background: rgba(183, 242, 91, 0.22);
+      color: #203c03;
+      transform: translateY(-1px);
+    }
+
+    main {
+      padding-top: 106px;
+    }
+
+    .section {
+      padding: 64px 0;
+    }
+
+    .section-head {
+      max-width: 860px;
+      margin: 0 auto 34px;
+      text-align: center;
+    }
+
+    .section-head.left {
+      text-align: left;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .kicker {
+      color: var(--blue);
+      font-size: 0.78rem;
+      font-weight: 950;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 18px;
+      color: #05070f;
+      font-size: clamp(2.15rem, 7.2vw, 5.45rem);
+      line-height: 1.02;
+      letter-spacing: -0.06em;
+    }
+
+    h2 {
+      margin-bottom: 12px;
+      color: var(--navy);
+      font-size: clamp(2rem, 4.8vw, 3.45rem);
+      line-height: 1.08;
+      letter-spacing: -0.045em;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      color: var(--navy);
+      line-height: 1.42;
+    }
+
+    p {
+      color: var(--muted);
+      line-height: 1.86;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-width: 158px;
+      padding: 14px 18px;
+      border-radius: 999px;
+      border: 0;
+      font-weight: 950;
+      white-space: nowrap;
+      transition: 0.24s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 34px rgba(8, 13, 43, 0.16);
+    }
+
+    .btn-dark {
+      background: #070c28;
+      color: white;
+    }
+
+    .btn-lime {
+      background: linear-gradient(135deg, var(--lime), #e4ff91);
+      color: #132402;
+    }
+
+    .btn-blue {
+      background: linear-gradient(135deg, var(--blue), #57a9ff);
+      color: white;
+    }
+
+    .btn-white {
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--navy);
+    }
+
+    .btn-insta {
+      background: linear-gradient(135deg, #f58529, #dd2a7b 45%, #8134af 75%, #515bd4);
+      color: white;
+    }
+
+    .sns-icon {
+      width: 20px;
+      height: 20px;
+      flex: 0 0 auto;
+    }
+
+    .hero {
+      padding: 18px 0 44px;
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 680px;
+      border-radius: 46px;
+      background: #111724;
+      box-shadow: 0 38px 110px rgba(8, 13, 43, 0.22);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 0;
+      opacity: 1;
+    }
+
+    .hero-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(248, 248, 243, 0.98) 0%, rgba(248, 248, 243, 0.94) 43%, rgba(248, 248, 243, 0.46) 64%, rgba(8, 13, 43, 0.32) 100%),
+        radial-gradient(circle at 70% 6%, rgba(183, 242, 91, 0.26), transparent 32%);
+      pointer-events: none;
+    }
+
+    .hero-bg .left-texture {
+      background:
+        radial-gradient(circle at 18% 22%, rgba(183, 242, 91, 0.26), transparent 28%),
+        linear-gradient(135deg, #fbfbf6, #f1f2ea);
+    }
+
+    .hero-bg .right-photo {
+      position: relative;
+      overflow: hidden;
+      background: #dbe3ef;
+    }
+
+    .hero-bg img {
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: saturate(0.98) contrast(1.04);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      min-height: 680px;
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      align-items: center;
+      gap: 34px;
+      padding: 44px;
+    }
+
+    .hero-copybox {
+      max-width: 690px;
+    }
+
+    .hero-title {
+      white-space: nowrap;
+      display: block;
+    }
+
+    .hero-title .char {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(18px);
+      filter: blur(6px);
+      animation: titleReveal 0.58s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      animation-delay: calc(var(--i) * 0.045s + 0.18s);
+    }
+
+    @keyframes titleReveal {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+      }
+    }
+
+    .hero-script {
+      margin: 18px 0 0;
+      font-family: "Times New Roman", Georgia, serif;
+      font-style: italic;
+      letter-spacing: 0.09em;
+      color: rgba(8, 13, 43, 0.66);
+      font-size: clamp(1.05rem, 2.6vw, 1.45rem);
+    }
+
+    .hero-lead {
+      max-width: 650px;
+      color: #46516a;
+      font-size: 1.02rem;
+      font-weight: 640;
+      line-height: 1.82;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 13px;
+      margin-bottom: 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.76);
+      border: 1px solid rgba(10, 25, 64, 0.08);
+      color: #40506f;
+      font-size: 0.84rem;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .hero-tag i {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--blue), var(--lime));
+      box-shadow: 0 0 0 6px rgba(183, 242, 91, 0.18);
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin: 22px 0 26px;
+    }
+
+    .chip {
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(10, 25, 64, 0.08);
+      box-shadow: 0 8px 20px rgba(19, 35, 78, 0.06);
+      color: #1d2a4b;
+      font-size: 0.88rem;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-panel {
+      align-self: end;
+      justify-self: end;
+      width: min(440px, 100%);
+      padding: 20px;
+      border-radius: 32px;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      box-shadow: 0 24px 60px rgba(8, 13, 43, 0.22);
+      backdrop-filter: blur(16px);
+    }
+
+    .hero-panel-photo {
+      overflow: hidden;
+      border-radius: 24px;
+      height: 270px;
+      background: #dbe3ef;
+    }
+
+    .hero-panel-photo img {
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero-panel-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 14px;
+      color: white;
+    }
+
+    .hero-panel-meta strong {
+      display: block;
+      font-size: 1.3rem;
+      line-height: 1;
+    }
+
+    .hero-panel-meta span {
+      display: block;
+      margin-top: 5px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+
+    .stats-strip {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin-top: -28px;
+      position: relative;
+      z-index: 3;
+    }
+
+    .stat {
+      border-radius: 26px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      box-shadow: var(--soft-shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--navy);
+      font-size: 2rem;
+      letter-spacing: -0.045em;
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 850;
+    }
+
+    .bar {
+      margin-top: 14px;
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(10, 25, 64, 0.08);
+      overflow: hidden;
+    }
+
+    .bar i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--blue), var(--lime), var(--green));
+      animation: growBar 1.1s ease both;
+      transform-origin: left;
+    }
+
+    @keyframes growBar {
+      from { transform: scaleX(0); }
+      to { transform: scaleX(1); }
+    }
+
+    .activity-intro {
+      display: grid;
+      grid-template-columns: 0.86fr 1.14fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .intro-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 34px;
+      padding: 30px;
+    }
+
+    .intro-card.dark {
+      color: white;
+      background:
+        linear-gradient(135deg, rgba(7, 12, 40, 0.94), rgba(21, 93, 255, 0.68)),
+        url("../assets/images/workshop-wide.jpg");
+      background-size: cover;
+      background-position: center;
+      box-shadow: var(--shadow);
+    }
+
+    .intro-card.dark h2,
+    .intro-card.dark p,
+    .intro-card.dark .kicker {
+      color: white;
+    }
+
+    .intro-card.dark p {
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .mini-timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 74px 1fr;
+      gap: 12px;
+      padding: 18px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.76);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      box-shadow: var(--soft-shadow);
+    }
+
+    .timeline-item strong {
+      color: var(--blue);
+      font-weight: 950;
+      line-height: 1.25;
+    }
+
+    .timeline-item p {
+      margin: 0;
+      font-size: 0.93rem;
+      line-height: 1.7;
+    }
+
+    .featured-wrap {
+      display: grid;
+      gap: 34px;
+    }
+
+    .featured-event {
+      position: relative;
+      overflow: hidden;
+      border-radius: 40px;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.76);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    .featured-event::before {
+      content: "";
+      position: absolute;
+      width: 460px;
+      height: 460px;
+      right: -190px;
+      top: -190px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(183, 242, 91, 0.25), transparent 66%);
+      pointer-events: none;
+    }
+
+    .featured-event.special::before {
+      left: -180px;
+      right: auto;
+      background: radial-gradient(circle, rgba(21, 93, 255, 0.18), transparent 66%);
+    }
+
+    .event-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 0;
+      align-items: stretch;
+    }
+
+    .event-grid.reverse {
+      grid-template-columns: 0.98fr 1.02fr;
+    }
+
+    .event-content {
+      padding: 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .event-media {
+      position: relative;
+      min-height: 620px;
+      padding: 26px;
+      display: grid;
+      align-items: end;
+    }
+
+    .event-media.pitch {
+      grid-template-columns: 1fr 0.7fr;
+      gap: 14px;
+    }
+
+    .event-media.herozz {
+      grid-template-columns: 0.68fr 1fr;
+      gap: 14px;
+    }
+
+    .event-photo {
+      position: relative;
+      overflow: hidden;
+      border-radius: 32px;
+      background: #e8eef6;
+      box-shadow: 0 20px 50px rgba(8, 13, 43, 0.16);
+    }
+
+    .event-photo.main {
+      height: 520px;
+    }
+
+    .event-photo.sub {
+      height: 330px;
+      margin-bottom: 28px;
+    }
+
+    .event-photo img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.55s ease;
+    }
+
+    .event-photo:hover img {
+      transform: scale(1.045);
+    }
+
+    .event-badge {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 13px;
+      margin-bottom: 16px;
+      border-radius: 999px;
+      background: rgba(183, 242, 91, 0.26);
+      color: #234500;
+      font-size: 0.8rem;
+      font-weight: 950;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .event-badge.blue {
+      background: rgba(21, 93, 255, 0.09);
+      color: var(--blue-dark);
+    }
+
+    .event-title {
+      margin-bottom: 14px;
+      font-size: clamp(1.8rem, 4.1vw, 3rem);
+    }
+
+    .event-lead {
+      color: #53617b;
+      font-weight: 650;
+      line-height: 1.9;
+    }
+
+    .event-meta {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 9px;
+      margin: 20px 0;
+    }
+
+    .meta-item {
+      padding: 11px 12px;
+      border-radius: 16px;
+      background: rgba(246, 250, 255, 0.82);
+      border: 1px solid rgba(15, 28, 66, 0.07);
+    }
+
+    .meta-item small {
+      display: block;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 850;
+      line-height: 1.3;
+      margin-bottom: 3px;
+    }
+
+    .meta-item strong {
+      display: block;
+      color: var(--navy);
+      font-size: 0.94rem;
+      line-height: 1.45;
+    }
+
+    .event-result {
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 22px;
+      background:
+        linear-gradient(135deg, rgba(183, 242, 91, 0.18), rgba(21, 93, 255, 0.06)),
+        rgba(255, 255, 255, 0.76);
+      border: 1px solid rgba(15, 28, 66, 0.06);
+    }
+
+    .event-result strong {
+      display: block;
+      color: var(--navy);
+      margin-bottom: 6px;
+      line-height: 1.5;
+    }
+
+    .event-result p {
+      margin: 0;
+      font-size: 0.94rem;
+    }
+
+    .gallery-board {
+      position: relative;
+      overflow: hidden;
+      border-radius: 42px;
+      padding: 34px;
+      background: #0a1028;
+      box-shadow: var(--shadow);
+      color: white;
+    }
+
+    .gallery-board::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 16% 10%, rgba(183, 242, 91, 0.26), transparent 28%),
+        radial-gradient(circle at 90% 18%, rgba(21, 93, 255, 0.22), transparent 26%),
+        linear-gradient(135deg, rgba(8, 13, 43, 0.94), rgba(8, 13, 43, 0.68));
+      pointer-events: none;
+    }
+
+    .gallery-board > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .gallery-board h2,
+    .gallery-board .kicker {
+      color: white;
+    }
+
+    .gallery-board p {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .masonry {
+      display: grid;
+      grid-template-columns: 1.16fr 0.86fr 1fr;
+      grid-auto-rows: 185px;
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.12);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.22);
+      min-height: 185px;
+    }
+
+    .gallery-item.big {
+      grid-row: span 2;
+    }
+
+    .gallery-item.wide {
+      grid-column: span 2;
+    }
+
+    .gallery-item img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.55s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.055);
+    }
+
+    .gallery-caption {
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      padding: 10px 12px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.88);
+      color: var(--navy);
+      font-size: 0.84rem;
+      font-weight: 950;
+      line-height: 1.45;
+      backdrop-filter: blur(12px);
+    }
+
+    .more-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .more-list span {
+      display: inline-flex;
+      align-items: center;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: white;
+      font-weight: 850;
+      font-size: 0.86rem;
+      white-space: nowrap;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .value-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 30px;
+      padding: 26px;
+      min-height: 220px;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.74);
+      box-shadow: var(--soft-shadow);
+      backdrop-filter: blur(12px);
+      transition: 0.25s ease;
+    }
+
+    .value-card:nth-child(2) { margin-top: 30px; }
+    .value-card:nth-child(3) { margin-top: -12px; }
+    .value-card:nth-child(4) { margin-top: 22px; }
+
+    .value-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .value-num {
+      display: inline-flex;
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      border-radius: 999px;
+      color: #112402;
+      font-weight: 950;
+      background: linear-gradient(135deg, var(--lime), #f0ffad);
+    }
+
+    .value-card:nth-child(even) .value-num {
+      background: linear-gradient(135deg, var(--blue), #78b8ff);
+      color: white;
+    }
+
+    .voices {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .voice-card {
+      padding: 24px;
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.74);
+      box-shadow: var(--soft-shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .voice-card p {
+      color: #45516d;
+      font-weight: 650;
+    }
+
+    .voice-card strong {
+      display: block;
+      color: var(--blue);
+      font-size: 0.88rem;
+      margin-bottom: 10px;
+    }
+
+    .final-cta {
+      overflow: hidden;
+      border-radius: 42px;
+      padding: 36px;
+      color: white;
+      background:
+        linear-gradient(135deg, rgba(8, 13, 43, 0.94), rgba(21, 93, 255, 0.54) 52%, rgba(183, 242, 91, 0.22)),
+        url("../assets/images/herozz-network.jpg");
+      background-size: cover;
+      background-position: center;
+      box-shadow: var(--shadow);
+    }
+
+    .final-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .final-cta h2 {
+      color: white;
+    }
+
+    .final-cta p,
+    .final-cta .kicker {
+      color: rgba(255, 255, 255, 0.86);
+    }
+
+    .final-photo {
+      overflow: hidden;
+      min-height: 320px;
+      border-radius: 32px;
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.18);
+    }
+
+    .final-photo img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    footer {
+      padding: 0 0 46px;
+    }
+
+    .footer-card {
+      border-radius: 32px;
+      padding: 26px;
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr 0.8fr;
+      gap: 20px;
+    }
+
+    .footer-logo {
+      width: 86px;
+      height: auto;
+      object-fit: contain;
+      margin-bottom: 12px;
+    }
+
+    .footer-card p,
+    .footer-card a {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 0.92rem;
+    }
+
+    .footer-card a {
+      display: block;
+      margin: 6px 0;
+    }
+
+    .footer-card h4 {
+      margin: 0 0 10px;
+      color: var(--navy);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px) scale(0.99);
+      transition: opacity 0.78s ease, transform 0.78s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .delay-1 { transition-delay: 0.08s; }
+    .delay-2 { transition-delay: 0.16s; }
+    .delay-3 { transition-delay: 0.24s; }
+    .delay-4 { transition-delay: 0.32s; }
+
+    @media (max-width: 1080px) {
+      .hero-bg,
+      .hero-content,
+      .activity-intro,
+      .event-grid,
+      .event-grid.reverse,
+      .final-grid,
+      .footer-card {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card,
+      .hero-content {
+        min-height: auto;
+      }
+
+      .hero-bg {
+        display: block;
+      }
+
+      .hero-bg .right-photo {
+        position: absolute;
+        inset: 48% 0 0;
+      }
+
+      .hero-bg::after {
+        background:
+          linear-gradient(180deg, rgba(248, 248, 243, 0.99) 0%, rgba(248, 248, 243, 0.93) 58%, rgba(248, 248, 243, 0.55) 100%),
+          radial-gradient(circle at 20% 5%, rgba(183, 242, 91, 0.24), transparent 34%);
+      }
+
+      .hero-panel {
+        justify-self: stretch;
+        width: 100%;
+      }
+
+      .stats-strip {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .event-media,
+      .event-media.pitch,
+      .event-media.herozz {
+        grid-template-columns: 1fr 0.7fr;
+        min-height: 430px;
+      }
+
+      .values-grid,
+      .voices {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .masonry {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        width: min(100% - 24px, var(--max));
+      }
+
+      .header-shell {
+        top: 8px;
+      }
+
+      header {
+        border-radius: 24px;
+        padding: 10px;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .brand-logo {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+      }
+
+      .brand-word strong {
+        font-size: 1.25rem;
+      }
+
+      .brand-word span {
+        font-size: 0.68rem;
+      }
+
+      nav {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 2px;
+      }
+
+      nav a {
+        padding: 8px 8px;
+        font-size: 0.78rem;
+      }
+
+      main {
+        padding-top: 138px;
+      }
+
+      .hero {
+        padding-top: 12px;
+      }
+
+      .hero-card {
+        border-radius: 32px;
+      }
+
+      .hero-content {
+        padding: 24px 18px;
+        gap: 18px;
+      }
+
+      h1 {
+        font-size: clamp(2.05rem, 9.4vw, 2.75rem);
+        letter-spacing: -0.055em;
+      }
+
+      .hero-title {
+        white-space: nowrap;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      .hero-lead {
+        font-size: 0.96rem;
+        line-height: 1.78;
+      }
+
+      .hero-panel {
+        padding: 14px;
+        border-radius: 26px;
+      }
+
+      .hero-panel-photo {
+        height: 220px;
+        border-radius: 20px;
+      }
+
+      .hero-panel-meta {
+        gap: 6px;
+      }
+
+      .hero-panel-meta strong {
+        font-size: 1.05rem;
+      }
+
+      .hero-panel-meta span {
+        font-size: 0.7rem;
+      }
+
+      .stats-strip {
+        margin-top: 14px;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .section {
+        padding: 46px 0;
+      }
+
+      .intro-card {
+        padding: 22px;
+        border-radius: 30px;
+      }
+
+      .event-content {
+        padding: 22px;
+      }
+
+      .featured-event {
+        border-radius: 32px;
+      }
+
+      .event-media,
+      .event-media.pitch,
+      .event-media.herozz {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding: 18px;
+      }
+
+      .event-photo.main,
+      .event-photo.sub {
+        height: 260px;
+        margin-bottom: 0;
+      }
+
+      .event-meta {
+        grid-template-columns: 1fr;
+      }
+
+      .masonry {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 230px;
+      }
+
+      .gallery-item.big,
+      .gallery-item.wide {
+        grid-row: span 1;
+        grid-column: span 1;
+      }
+
+      .gallery-board,
+      .final-cta {
+        padding: 22px;
+        border-radius: 32px;
+      }
+
+      .values-grid,
+      .voices {
+        grid-template-columns: 1fr;
+      }
+
+      .value-card,
+      .value-card:nth-child(2),
+      .value-card:nth-child(3),
+      .value-card:nth-child(4) {
+        margin-top: 0;
+      }
+
+      .btn {
+        width: 100%;
+        min-width: 0;
+      }
+
+      .final-photo {
+        min-height: 260px;
+      }
+    }
+
+    @media (max-width: 390px) {
+      h1 {
+        font-size: 1.92rem;
+      }
+
+      .hero-tag {
+        font-size: 0.76rem;
+      }
+
+      nav a {
+        font-size: 0.74rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <div class="orb one"></div>
+    <div class="orb two"></div>
+    <div class="orb three"></div>
+
+    <div class="header-shell">
+      <div class="container">
+        <header class="glass" id="siteHeader">
+          <a class="brand" href="#top" aria-label="SIBトップへ">
+            <img class="brand-logo" src="../assets/images/sib-logo.png" alt="SIB Shonan Innovation Base ロゴ" />
+            <span class="brand-word">
+              <strong>SIB</strong>
+              <span>Shonan Innovation Base</span>
+            </span>
+          </a>
+
+          <nav aria-label="ページ内ナビゲーション">
+            <a href="#about">概要</a>
+            <a href="#featured">実績</a>
+            <a href="#gallery">写真</a>
+            <a href="#values">想い</a>
+            <a href="#contact">次へ</a>
+          </nav>
+        </header>
+      </div>
+    </div>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container">
+          <div class="hero-card reveal visible">
+            <div class="hero-bg" aria-hidden="true">
+              <div class="left-texture"></div>
+              <div class="right-photo">
+                <img src="../assets/images/herozz-group.jpg" alt="" />
+              </div>
+            </div>
+
+            <div class="hero-content">
+              <div class="hero-copybox">
+                <div class="hero-tag"><i></i>活動・実績</div>
+
+                <h1 class="hero-title" id="heroTitle">これまでの活動実績</h1>
+
+                <div class="hero-script">Shonan Innovation Base</div>
+
+                <p class="hero-lead">
+                  SIBは、学生・企業・地域が自然につながるイベントやプロジェクトを通じて、学生に挑戦のきっかけを届けています。ここでは、これまで積み重ねてきた活動実績と、イベントの様子をご紹介します。
+                </p>
+
+                <div class="chip-row">
+                  <span class="chip">ピッチコンテスト</span>
+                  <span class="chip">企業連携</span>
+                  <span class="chip">地域共創</span>
+                  <span class="chip">交流会</span>
+                  <span class="chip">オンライン勉強会</span>
+                </div>
+
+                <div class="cta-row">
+                  <a class="btn btn-dark" href="#featured">代表実績を見る</a>
+                  <a class="btn btn-lime" href="#gallery">写真で見る</a>
+                </div>
+              </div>
+
+              <div class="hero-panel">
+                <div class="hero-panel-photo">
+                  <img src="../assets/images/first-pitch-main.jpg" alt="第一回ピッチコンテストのワークショップ風景" />
+                </div>
+                <div class="hero-panel-meta">
+                  <div>
+                    <strong>300+</strong>
+                    <span>参加学生</span>
+                  </div>
+                  <div>
+                    <strong>7</strong>
+                    <span>オフライン</span>
+                  </div>
+                  <div>
+                    <strong>10+</strong>
+                    <span>協力企業</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="stats-strip">
+            <div class="stat reveal delay-1">
+              <strong>300+</strong>
+              <span>累計参加学生</span>
+              <div class="bar"><i style="width:94%"></i></div>
+            </div>
+            <div class="stat reveal delay-2">
+              <strong>7</strong>
+              <span>オフラインイベント</span>
+              <div class="bar"><i style="width:72%"></i></div>
+            </div>
+            <div class="stat reveal delay-3">
+              <strong>10+</strong>
+              <span>オンラインイベント</span>
+              <div class="bar"><i style="width:80%"></i></div>
+            </div>
+            <div class="stat reveal delay-4">
+              <strong>10+</strong>
+              <span>協力企業</span>
+              <div class="bar"><i style="width:76%"></i></div>
+            </div>
+            <div class="stat reveal delay-1">
+              <strong>20+</strong>
+              <span>運営メンバー</span>
+              <div class="bar"><i style="width:86%"></i></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="container">
+          <div class="activity-intro">
+            <div class="intro-card dark reveal">
+              <div class="kicker">What We Do</div>
+              <h2>イベントを通じて、学生の挑戦と社会との接点をつくる。</h2>
+              <p>
+                SIBは、ピッチコンテスト、企業・学生交流会、著名人・経営者とのトークセッション、地域活性化に向けた会議、オンライン勉強会などを実施しています。
+              </p>
+              <p>
+                単なるイベント開催ではなく、出会いを次の挑戦や行動につなげることを大切にしています。
+              </p>
+            </div>
+
+            <div class="mini-timeline">
+              <div class="timeline-item reveal delay-1">
+                <strong>Pitch</strong>
+                <p>学生がチームで考え、発表し、フィードバックを受ける実践型イベント。</p>
+              </div>
+              <div class="timeline-item reveal delay-2">
+                <strong>Talk</strong>
+                <p>著名人や経営者との対話を通じて、学生の視野を広げるトークセッション。</p>
+              </div>
+              <div class="timeline-item reveal delay-3">
+                <strong>Local</strong>
+                <p>地域行政や地域企業と連携し、湘南エリアの可能性を考える活動。</p>
+              </div>
+              <div class="timeline-item reveal delay-4">
+                <strong>Learn</strong>
+                <p>Zoom勉強会や交流会を通じて、継続的に学び合うコミュニティを運営。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="featured" class="section">
+        <div class="container">
+          <div class="section-head reveal">
+            <div class="kicker">Featured Events</div>
+            <h2>代表的な活動実績</h2>
+            <p>
+              特に大きな反響があった2つのイベントを中心に、SIBの実行力・集客力・外部連携力をご紹介します。
+            </p>
+          </div>
+
+          <div class="featured-wrap">
+            <article class="featured-event reveal">
+              <div class="event-grid">
+                <div class="event-media pitch">
+                  <figure class="event-photo main">
+                    <img src="../assets/images/first-pitch-main.jpg" alt="第一回ピッチコンテストで学生がグループワークをしている様子" />
+                  </figure>
+                  <figure class="event-photo sub">
+                    <img src="../assets/images/first-pitch-presentation.jpg" alt="第一回ピッチコンテストで企業関係者が登壇している様子" />
+                  </figure>
+                </div>
+
+                <div class="event-content">
+                  <span class="event-badge">Offline Pitch Contest</span>
+                  <h2 class="event-title">第一回ピッチコンテスト</h2>
+                  <p class="event-lead">
+                    2025年4月5日、東京都新宿区の会議室FORESTにて、SIB初となる当日型ピッチコンテストを開催しました。学生50名が当日チームを組み、与えられたテーマに対してビジネスアイデアを考案。限られた時間の中で課題を整理し、チームでアイデアを形にし、3分間のピッチとして発表しました。
+                  </p>
+                  <p class="event-lead">
+                    ピッチ後には、企業関係者・経営者と学生がフラットに交流できる時間も設計。学生にとっては、プレゼン力・コミュニケーション力・創造力を実践的に高める機会となり、企業にとっては若者の視点や熱量に触れる場となりました。
+                  </p>
+
+                  <div class="event-meta">
+                    <div class="meta-item"><small>開催日</small><strong>2025年4月5日</strong></div>
+                    <div class="meta-item"><small>形式</small><strong>オフライン</strong></div>
+                    <div class="meta-item"><small>場所</small><strong>新宿 / 会議室FOREST</strong></div>
+                    <div class="meta-item"><small>学生参加</small><strong>50名</strong></div>
+                    <div class="meta-item"><small>企業関係者</small><strong>6名</strong></div>
+                    <div class="meta-item"><small>スポンサー企業</small><strong>10社</strong></div>
+                  </div>
+
+                  <div class="event-result">
+                    <strong>学生同士、そして学生と企業が直接つながる実践型イベントを実現。</strong>
+                    <p>当日型ピッチを通じて、学生がチームで考え、伝え、交流する機会を提供しました。</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="featured-event special reveal">
+              <div class="event-grid reverse">
+                <div class="event-content">
+                  <span class="event-badge blue">Special Collaboration</span>
+                  <h2 class="event-title">学生団体SIB × HERO'ZZ 共催イベント</h2>
+                  <p class="event-lead">
+                    2025年9月27日、東京都港区・浜松町PREXにて、学生団体SIBとHERO'ZZによる共催イベントを開催しました。本イベントでは、YouTube登録者1,000万人規模で知られるVAMBIさん、元REALVALUE MAFIAの水畑裕貴さんをゲストに迎え、SIBメンバーとのトークセッションを実施しました。
+                  </p>
+                  <p class="event-lead">
+                    学生が普段なかなか接点を持つことのできない著名人・経営者層と、近い距離で対話できる貴重な機会に。後半では、軽食を囲みながらのグループ交流会・自由交流会を実施し、企業関係者や登壇者との自然な交流も生まれました。
+                  </p>
+
+                  <div class="event-meta">
+                    <div class="meta-item"><small>開催日</small><strong>2025年9月27日</strong></div>
+                    <div class="meta-item"><small>形式</small><strong>オフライン</strong></div>
+                    <div class="meta-item"><small>場所</small><strong>浜松町PREX 6階</strong></div>
+                    <div class="meta-item"><small>学生参加</small><strong>40名</strong></div>
+                    <div class="meta-item"><small>企業関係者</small><strong>3名</strong></div>
+                    <div class="meta-item"><small>ゲスト登壇者</small><strong>2名</strong></div>
+                  </div>
+
+                  <div class="event-result">
+                    <strong>著名人・企業・学生が近い距離でつながる、SIBならではの特別な共創イベントを実現。</strong>
+                    <p>イベントを通じて、実際に1〜3名のインターン成約につながるなど、キャリアやビジネスの可能性が広がる場となりました。</p>
+                  </div>
+                </div>
+
+                <div class="event-media herozz">
+                  <figure class="event-photo sub">
+                    <img src="../assets/images/herozz-talk.jpg" alt="SIBとHERO'ZZ共催イベントのトークセッション風景" />
+                  </figure>
+                  <figure class="event-photo main">
+                    <img src="../assets/images/herozz-group.jpg" alt="SIBとHERO'ZZ共催イベントの集合写真" />
+                  </figure>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" class="section">
+        <div class="container">
+          <div class="gallery-board reveal">
+            <div class="section-head left">
+              <div class="kicker">More Activities</div>
+              <h2>他にも様々なイベントを実施しております。</h2>
+              <p>
+                地域行政との対話、経営者との交流、著名な経営者同士のトークセッション、第二回ピッチコンテスト、Zoomでの勉強会、オフライン交流会など、学生が社会とつながる機会を継続的に創出しています。
+              </p>
+            </div>
+
+            <div class="masonry">
+              <figure class="gallery-item big">
+                <img src="../assets/images/mayor-meeting.jpg" alt="大磯町の町長と地域活性化に向けた会議" />
+                <figcaption class="gallery-caption">大磯町の町長と地域活性化に向けた会議</figcaption>
+              </figure>
+
+              <figure class="gallery-item">
+                <img src="../assets/images/mayor-lunch.jpg" alt="大磯町長を囲む会" />
+                <figcaption class="gallery-caption">大磯町長を囲む会</figcaption>
+              </figure>
+
+              <figure class="gallery-item big">
+                <img src="../assets/images/hayashi-talk.jpg" alt="林尚弘氏と山崎俊氏によるトークセッション" />
+                <figcaption class="gallery-caption">林尚弘氏 × 株式会社Wiz 山崎俊氏 トークセッション</figcaption>
+              </figure>
+
+              <figure class="gallery-item">
+                <img src="../assets/images/second-pitch.jpg" alt="第二回ピッチコンテスト" />
+                <figcaption class="gallery-caption">第二回ピッチコンテスト</figcaption>
+              </figure>
+
+              <figure class="gallery-item wide">
+                <img src="../assets/images/workshop-wide.jpg" alt="学生ワークショップの様子" />
+                <figcaption class="gallery-caption">ワークショップ / オフライン交流会</figcaption>
+              </figure>
+            </div>
+
+            <div class="more-list">
+              <span>地域活性化会議</span>
+              <span>町長を囲む会</span>
+              <span>経営者トークセッション</span>
+              <span>ピッチコンテスト</span>
+              <span>Zoom勉強会</span>
+              <span>オフライン交流会</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="values" class="section">
+        <div class="container">
+          <div class="section-head reveal">
+            <div class="kicker">Values</div>
+            <h2>SIBが大切にしていること</h2>
+            <p>
+              SIBは、ただイベントを開くだけではありません。学生が一歩踏み出し、社会とつながり、その出会いを次の行動に変えることを大切にしています。
+            </p>
+          </div>
+
+          <div class="values-grid">
+            <article class="value-card reveal delay-1">
+              <span class="value-num">01</span>
+              <h3>挑戦</h3>
+              <p>学生が初めての場でも一歩踏み出せるように、参加しやすく実践につながる機会を設計します。</p>
+            </article>
+
+            <article class="value-card reveal delay-2">
+              <span class="value-num">02</span>
+              <h3>接点</h3>
+              <p>学生・企業・地域が自然に出会い、普段は生まれにくい対話や関係性をつくります。</p>
+            </article>
+
+            <article class="value-card reveal delay-3">
+              <span class="value-num">03</span>
+              <h3>共創</h3>
+              <p>出会いで終わらせず、新しい企画、採用、インターン、地域連携などの次の展開につなげます。</p>
+            </article>
+
+            <article class="value-card reveal delay-4">
+              <span class="value-num">04</span>
+              <h3>実践</h3>
+              <p>机上の学びではなく、ピッチ・運営・交流・広報など、リアルな経験を通じて成長できる場をつくります。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head reveal">
+            <div class="kicker">Voices</div>
+            <h2>活動を通じて生まれる価値</h2>
+          </div>
+
+          <div class="voices">
+            <article class="voice-card reveal delay-1">
+              <strong>Student</strong>
+              <p>普段出会えない学生や企業の方と話せて、自分の将来を考えるきっかけになりました。</p>
+            </article>
+
+            <article class="voice-card reveal delay-2">
+              <strong>Business</strong>
+              <p>学生のリアルな価値観や考え方を知ることができ、採用や広報を考える上でも参考になりました。</p>
+            </article>
+
+            <article class="voice-card reveal delay-3">
+              <strong>Member</strong>
+              <p>イベントをつくる側として関わることで、企画力やコミュニケーション力を実践的に学べました。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="container">
+          <div class="final-cta reveal">
+            <div class="final-grid">
+              <div>
+                <div class="kicker">Next Action</div>
+                <h2>SIBの活動に関わってみませんか？</h2>
+                <p>
+                  学生の方は、部門紹介や参加方法へ。企業の方は、協賛・共催・採用広報などの連携ページへ。まずはSIBの雰囲気を知りたい方はInstagramをご覧ください。
+                </p>
+
+                <div class="cta-row">
+                  <a class="btn btn-white" href="../student/">学生の方はこちら</a>
+                  <a class="btn btn-blue" href="../business/">企業の方はこちら</a>
+                  <a
+                    class="btn btn-insta"
+                    href="https://www.instagram.com/gakuseidantai_sib?igsh=cnU0Mmd0MndwMGUy&utm_source=qr"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <svg class="sns-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <rect x="3" y="3" width="18" height="18" rx="5" stroke="white" stroke-width="2"></rect>
+                      <circle cx="12" cy="12" r="4" stroke="white" stroke-width="2"></circle>
+                      <circle cx="17.5" cy="6.5" r="1.3" fill="white"></circle>
+                    </svg>
+                    Instagramを見る
+                  </a>
+                </div>
+              </div>
+
+              <div class="final-photo">
+                <img src="../assets/images/herozz-network.jpg" alt="SIBイベントで学生と企業関係者が交流している様子" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-card glass reveal">
+          <div>
+            <img class="footer-logo" src="../assets/images/sib-logo.png" alt="SIBロゴ" />
+            <p>
+              SIB / Shonan Innovation Base<br />
+              学生・企業・地域をつなぎ、挑戦のきっかけを創る湘南発の学生団体です。
+            </p>
+          </div>
+
+          <div>
+            <h4>Page</h4>
+            <a href="#about">概要</a>
+            <a href="#featured">実績</a>
+            <a href="#gallery">活動写真</a>
+            <a href="#values">大切にしていること</a>
+          </div>
+
+          <div>
+            <h4>Next</h4>
+            <a href="../student/">学生の方はこちら</a>
+            <a href="../business/">企業の方はこちら</a>
+            <a href="https://www.instagram.com/gakuseidantai_sib?igsh=cnU0Mmd0MndwMGUy&utm_source=qr" target="_blank" rel="noopener noreferrer">Instagram</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const headerShell = document.querySelector('.header-shell');
+    const header = document.getElementById('siteHeader');
+    let lastScrollY = window.scrollY;
+
+    function onScroll() {
+      const currentY = window.scrollY;
+      header.classList.toggle('compact', currentY > 20);
+
+      if (currentY <= 20 || currentY < lastScrollY) {
+        headerShell.classList.remove('hidden');
+      } else if (currentY > lastScrollY && currentY > 120) {
+        headerShell.classList.add('hidden');
+      }
+
+      lastScrollY = currentY;
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    const heroTitle = document.getElementById('heroTitle');
+    const heroText = heroTitle.textContent;
+    heroTitle.textContent = '';
+
+    Array.from(heroText).forEach((char, index) => {
+      const span = document.createElement('span');
+      span.className = 'char';
+      span.style.setProperty('--i', index);
+      span.textContent = char;
+      heroTitle.appendChild(span);
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
+
+    document.querySelectorAll('.reveal').forEach((el) => {
+      if (!el.classList.contains('visible')) {
+        observer.observe(el);
+      }
+    });
+
+    document.querySelectorAll('.value-card, .voice-card, .stat, .meta-item, .timeline-item').forEach((card) => {
+      card.addEventListener('mousemove', (event) => {
+        if (window.innerWidth < 900) return;
+
+        const rect = card.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        const rotateX = ((y / rect.height) - 0.5) * -3.5;
+        const rotateY = ((x / rect.width) - 0.5) * 3.5;
+
+        card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+  </script>
+</body>
+</html>
