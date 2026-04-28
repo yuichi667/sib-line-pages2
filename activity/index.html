@@ -37,6 +37,7 @@
 
     html {
       scroll-behavior: smooth;
+      overflow-x: hidden;
     }
 
     body {
@@ -62,8 +63,9 @@
     }
 
     img {
-      width: 100%;
       display: block;
+      width: 100%;
+      max-width: 100%;
     }
 
     .page {
@@ -402,11 +404,13 @@
 
     .hero-copybox {
       max-width: 690px;
+      min-width: 0;
     }
 
     .hero-title {
       white-space: nowrap;
       display: block;
+      max-width: 100%;
     }
 
     .hero-title .char {
@@ -495,12 +499,14 @@
       align-self: end;
       justify-self: end;
       width: min(440px, 100%);
+      max-width: 100%;
       padding: 20px;
       border-radius: 32px;
       background: rgba(255, 255, 255, 0.18);
       border: 1px solid rgba(255, 255, 255, 0.24);
       box-shadow: 0 24px 60px rgba(8, 13, 43, 0.22);
       backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
     }
 
     .hero-panel-photo {
@@ -554,6 +560,7 @@
       border: 1px solid rgba(255, 255, 255, 0.72);
       box-shadow: var(--soft-shadow);
       backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
 
     .stat strong {
@@ -669,6 +676,7 @@
       border: 1px solid rgba(255, 255, 255, 0.76);
       box-shadow: var(--shadow);
       backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
     }
 
     .featured-event::before {
@@ -706,6 +714,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      min-width: 0;
     }
 
     .event-media {
@@ -921,6 +930,7 @@
       font-weight: 950;
       line-height: 1.45;
       backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
 
     .more-list {
@@ -959,6 +969,7 @@
       border: 1px solid rgba(255, 255, 255, 0.74);
       box-shadow: var(--soft-shadow);
       backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       transition: 0.25s ease;
     }
 
@@ -1001,6 +1012,7 @@
       border: 1px solid rgba(255, 255, 255, 0.74);
       box-shadow: var(--soft-shadow);
       backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
 
     .voice-card p {
@@ -1018,42 +1030,28 @@
     .final-cta {
       overflow: hidden;
       border-radius: 42px;
-      padding: 36px;
+      padding: 40px 36px;
       color: white;
       background:
-        linear-gradient(135deg, rgba(8, 13, 43, 0.94), rgba(21, 93, 255, 0.54) 52%, rgba(183, 242, 91, 0.22)),
-        url("../assets/images/herozz-network.jpg");
-      background-size: cover;
-      background-position: center;
+        radial-gradient(circle at 10% 0%, rgba(183, 242, 91, 0.32), transparent 34%),
+        radial-gradient(circle at 100% 16%, rgba(21, 93, 255, 0.32), transparent 35%),
+        linear-gradient(135deg, #071026 0%, #0d1e52 58%, #142b2a 100%);
       box-shadow: var(--shadow);
     }
 
     .final-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 20px;
-      align-items: center;
+      display: block;
+      max-width: 900px;
     }
 
     .final-cta h2 {
       color: white;
+      max-width: 720px;
     }
 
     .final-cta p,
     .final-cta .kicker {
       color: rgba(255, 255, 255, 0.86);
-    }
-
-    .final-photo {
-      overflow: hidden;
-      min-height: 320px;
-      border-radius: 32px;
-      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.18);
-    }
-
-    .final-photo img {
-      height: 100%;
-      object-fit: cover;
     }
 
     footer {
@@ -1114,7 +1112,6 @@
       .activity-intro,
       .event-grid,
       .event-grid.reverse,
-      .final-grid,
       .footer-card {
         grid-template-columns: 1fr;
       }
@@ -1135,7 +1132,7 @@
 
       .hero-bg::after {
         background:
-          linear-gradient(180deg, rgba(248, 248, 243, 0.99) 0%, rgba(248, 248, 243, 0.93) 58%, rgba(248, 248, 243, 0.55) 100%),
+          linear-gradient(180deg, rgba(248, 248, 243, 0.99) 0%, rgba(248, 248, 243, 0.94) 55%, rgba(248, 248, 243, 0.62) 100%),
           radial-gradient(circle at 20% 5%, rgba(183, 242, 91, 0.24), transparent 34%);
       }
 
@@ -1216,20 +1213,31 @@
 
       .hero-card {
         border-radius: 32px;
+        overflow: hidden;
+      }
+
+      .hero-bg {
+        display: none;
       }
 
       .hero-content {
+        display: block;
         padding: 24px 18px;
-        gap: 18px;
+        min-height: auto;
+        background:
+          linear-gradient(180deg, rgba(248, 248, 243, 0.98), rgba(248, 248, 243, 0.92)),
+          radial-gradient(circle at 0% 0%, rgba(183, 242, 91, 0.22), transparent 38%);
       }
 
       h1 {
-        font-size: clamp(2.05rem, 9.4vw, 2.75rem);
-        letter-spacing: -0.055em;
+        font-size: clamp(1.62rem, 7.25vw, 2.15rem);
+        line-height: 1.08;
+        letter-spacing: -0.06em;
       }
 
       .hero-title {
         white-space: nowrap;
+        max-width: 100%;
       }
 
       h2 {
@@ -1242,8 +1250,11 @@
       }
 
       .hero-panel {
+        margin-top: 20px;
         padding: 14px;
         border-radius: 26px;
+        background: rgba(7, 12, 40, 0.88);
+        box-shadow: 0 18px 42px rgba(8, 13, 43, 0.18);
       }
 
       .hero-panel-photo {
@@ -1277,6 +1288,11 @@
         border-radius: 30px;
       }
 
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
       .event-content {
         padding: 22px;
       }
@@ -1293,6 +1309,10 @@
         padding: 18px;
       }
 
+      .event-grid.reverse .event-media {
+        order: -1;
+      }
+
       .event-photo.main,
       .event-photo.sub {
         height: 260px;
@@ -1301,6 +1321,10 @@
 
       .event-meta {
         grid-template-columns: 1fr;
+      }
+
+      .event-badge {
+        white-space: normal;
       }
 
       .masonry {
@@ -1337,14 +1361,14 @@
         min-width: 0;
       }
 
-      .final-photo {
-        min-height: 260px;
+      .footer-card {
+        grid-template-columns: 1fr;
       }
     }
 
     @media (max-width: 390px) {
       h1 {
-        font-size: 1.92rem;
+        font-size: clamp(1.45rem, 7vw, 1.72rem);
       }
 
       .hero-tag {
@@ -1353,6 +1377,18 @@
 
       nav a {
         font-size: 0.74rem;
+      }
+
+      .stat {
+        padding: 16px 14px;
+      }
+
+      .stat strong {
+        font-size: 1.6rem;
+      }
+
+      .stat span {
+        font-size: 0.78rem;
       }
     }
   </style>
@@ -1743,10 +1779,6 @@
                     Instagramを見る
                   </a>
                 </div>
-              </div>
-
-              <div class="final-photo">
-                <img src="../assets/images/herozz-network.jpg" alt="SIBイベントで学生と企業関係者が交流している様子" />
               </div>
             </div>
           </div>
